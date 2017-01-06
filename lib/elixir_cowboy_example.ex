@@ -10,11 +10,25 @@ defmodule ElixirCowboyExample do
     children = [
       # Starts a worker by calling: ElixirCowboyExample.Worker.start_link(arg1, arg2, arg3)
       # worker(ElixirCowboyExample.Worker, [arg1, arg2, arg3]),
+      worker(__MODULE__, [], function: :run)
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: ElixirCowboyExample.Supervisor]
     Supervisor.start_link(children, opts)
+  end
+
+  def run do
+    routes = [
+      {"/", ElixirCowboyExample.Handler, []}
+    ]
+
+    dispatch = :cowboy_router.compile([{:_, routes}])
+
+    opts = [port: 4000]
+    env = [dispatch: dispatch]
+
+    {:ok, _pid} = :cowboy.start_http(:http, 100, opts, [env: env])
   end
 end
