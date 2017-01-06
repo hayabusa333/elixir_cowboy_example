@@ -1,24 +1,17 @@
 # ElixirCowboyExample
+- used
+``` cmd
+$ mix deps.get
+$ iex -S mix  
+```
+- html
 
-**TODO: Add description**
+```cmd
+$ curl -i -H "Accept: text/plain" http://localhost:4000
+HTTP/1.1 200 OK
+server: Cowboy
+date: Fri, 06 Jan 2017 01:15:23 GMT
+content-length: 13
+content-type: text/plain
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
-  1. Add `elixir_cowboy_example` to your list of dependencies in `mix.exs`:
-
-    ```elixir
-    def deps do
-      [{:elixir_cowboy_example, "~> 0.1.0"}]
-    end
-    ```
-
-  2. Ensure `elixir_cowboy_example` is started before your application:
-
-    ```elixir
-    def application do
-      [applications: [:elixir_cowboy_example]]
-    end
-    ```
-
+```
