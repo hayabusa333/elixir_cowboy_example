@@ -21,7 +21,8 @@ defmodule ElixirCowboyExample do
 
   def run do
     routes = [
-      {"/", ElixirCowboyExample.Handler, []}
+      {"/", ElixirCowboyExample.Handler, []},
+      {"/:html", ElixirCowboyExample.Handler, []}
     ]
 
     dispatch = :cowboy_router.compile([{:_, routes}])
