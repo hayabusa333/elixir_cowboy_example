@@ -22,6 +22,7 @@ defmodule ElixirCowboyExample do
   def run do
     routes = [
       {"/", ElixirCowboyExample.Handler, []},
+      {"/json", ElixirCowboyExample.JsonHandler, []},
       {"/:html", ElixirCowboyExample.Handler, []}
     ]
 
