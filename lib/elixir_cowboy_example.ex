@@ -26,7 +26,8 @@ defmodule ElixirCowboyExample do
       {"/json", ElixirCowboyExample.JsonHandler, []},
       {"/:html", ElixirCowboyExample.Handler, []},
       {"/priv/static/js/:javascript", ElixirCowboyExample.JavascriptHandler, []},
-      {"/priv/static/css/:css", ElixirCowboyExample.CssHandler, []}
+      {"/priv/static/css/:css", ElixirCowboyExample.CssHandler, []},
+      {"/priv/static/image/[...]", :cowboy_static, {:priv_dir, :elixir_cowboy_example, "static/image"}}
     ]
 
     dispatch = :cowboy_router.compile([{:_, routes}])
