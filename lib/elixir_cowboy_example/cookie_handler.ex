@@ -5,7 +5,7 @@ defmodule ElixirCowboyExample.CookieHandler do
        req)
 
     header = %{"content-type" => "text/html"}
-    body = "file upload ok"
+    body = "push cookie"
     { :ok, reply } = :cowboy_req.reply(200, header, body, cookie_req)
 
     {:ok, cookie_req, opts}
