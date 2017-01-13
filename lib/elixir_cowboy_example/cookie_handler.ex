@@ -14,7 +14,7 @@ defmodule ElixirCowboyExample.CookieHandler do
      body = "push cookie"
      { :ok, reply } = :cowboy_req.reply(200, headers, body, cookie_req)
 
-     {:ok, req, state}
+     {:ok, cookie_req, state}
   end
 
   def terminate(_reason, _req, _state) do
