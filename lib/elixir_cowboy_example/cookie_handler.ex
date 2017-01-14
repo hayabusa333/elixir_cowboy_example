@@ -4,6 +4,13 @@ defmodule ElixirCowboyExample.CookieHandler do
   end
 
   def handle(req, state) do
+
+     {all_cookies, req} = :cowboy_req.cookies(req)
+     {cookie_val, req} = :cowboy_req.cookie("hoge", req)
+
+     IO.inspect all_cookies
+     IO.inspect cookie_val
+
      cookie_req = :cowboy_req.set_resp_cookie("server", "add_cookie", [
        {:max_age, 3600},
        {:domain, "localhost"},
