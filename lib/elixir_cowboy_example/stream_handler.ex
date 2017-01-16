@@ -7,9 +7,9 @@ defmodule ElixirCowboyExample.StreamHandler do
 
     {:ok, req} = :cowboy_req.chunked_reply(200, req)
     :ok = :cowboy_req.chunk("<html><head>Hello world!</head>", req)
-    :timer.sleep(5000)
+    :timer.sleep(2000)
     :ok = :cowboy_req.chunk("<body><p>Stream!</p>", req)
-    :timer.sleep(5000)
+    :timer.sleep(2000)
     :ok = :cowboy_req.chunk("<p>Output!</p></body></html>", req)
 
     {:ok, req, state}
